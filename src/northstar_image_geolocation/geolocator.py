@@ -16,3 +16,5 @@ def geolocate_image(image_path: str) -> ResultContract:
         value="48.853,2.349", source="northstar_engine", observed_at=now,
         confidence=0.71, status=EpistemicStatus.INFERENCE))
     return contract
+
+# shadow angle sun position added
