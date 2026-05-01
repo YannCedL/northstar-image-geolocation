@@ -1,6 +1,9 @@
-from northstar_image_geolocation import geolocate_image
+# test du moteur de géolocalisation solaire Northstar
+from northstar_image_geolocation.geolocator import geolocate_image
 
 def test_geolocate_image():
-    c = geolocate_image("street_photo.jpg")
-    assert "estimated_lat" in c.result
-    assert c.result["radius_km"] > 0
+    contract = geolocate_image("photo.jpg")
+    assert contract is not None
+    assert contract.result["estimated_lat"] is not None
+    assert contract.result["sun_azimuth_deg"] > 0
+    assert len(contract.evidence) >= 1
